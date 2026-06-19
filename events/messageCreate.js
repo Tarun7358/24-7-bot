@@ -1,25 +1,26 @@
 const config = require('../config');
+const db = require('../utils/db');
+const securityEngine = require('../utils/securityEngine');
 
 module.exports = {
   name: 'messageCreate',
   execute(message, client) {
-    // Ignore messages sent by bots or if they are system messages
     if (message.author.bot || message.system) return;
+    if (!message.guild) return;
 
-    // Run security scans on every message (threat detection, mass mentions)
-    const securityEngine = require('../utils/securityEngine');
+    // 1. Increment Activity Stats
+    db.incrementMessages(message.author.id, message.channel.id);
+
+    // 2. Run security scans
     securityEngine.detectMsgThreats(message);
 
-    // Check if the message starts with the prefix
+    // 3. Command prefix check
     if (!message.content.startsWith(config.prefix)) return;
 
-    // Parse the prefix, command name, and arguments
     const args = message.content.slice(config.prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
 
-    // Look up the command in the client.commands Collection
     const command = client.commands.get(commandName);
-
     if (!command) return;
 
     try {

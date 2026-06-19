@@ -5,16 +5,28 @@ const rateTracker = {};
 
 module.exports = {
   calculateHealthScore(guild) {
-    let score = 100;
+    const data = db.getDb();
     const warnings = [];
+    
+    // 1. Verification (Max 20%)
+    let verificationScore = 20;
+    if (guild.verificationLevel === 0) {
+      verificationScore -= 10;
+      warnings.push('⚠️ Guild verification level is set to None (unprotected against bot raids).');
+    }
+    const ver = data.verification;
+    if (!ver || !ver.roleId || !ver.channelId) {
+      verificationScore -= 10;
+      warnings.push('⚠️ XTREMEZ Verification system is unconfigured (/setupverify).');
+    }
+
+    // 2. Permission Security (Max 20%)
+    let permissionScore = 20;
     const adminRoles = [];
     const highRiskRoles = [];
     const protectedRoles = [];
 
-    const roles = guild.roles.cache;
-    
-    // 1. Audit Roles & Permissions
-    roles.forEach(role => {
+    guild.roles.cache.forEach(role => {
       if (role.name === '@everyone') {
         const hasDangerous = role.permissions.has([
           PermissionFlagsBits.Administrator,
@@ -26,7 +38,7 @@ module.exports = {
           PermissionFlagsBits.ManageWebhooks
         ]);
         if (hasDangerous) {
-          score -= 40;
+          permissionScore -= 10;
           warnings.push('⚠️ The @everyone role has dangerous permissions enabled.');
         }
         return;
@@ -48,47 +60,56 @@ module.exports = {
       }
     });
 
-    // Too many admin roles risk
     if (adminRoles.length > 3) {
-      const penalty = Math.min((adminRoles.length - 3) * 5, 15);
-      score -= penalty;
+      permissionScore -= 5;
       warnings.push(`⚠️ Excessive Administrator roles configured (${adminRoles.length} roles).`);
     }
 
-    // 2. Verification Settings
-    if (guild.verificationLevel === 0) { // NONE
-      score -= 15;
-      warnings.push('⚠️ Server verification level is set to None (unprotected against bots).');
+    // 3. Protected Roles (Max 15%)
+    let protectedRolesScore = 15;
+    const configuredProtectedRoles = data.soc.protectedRoles || [];
+    if (configuredProtectedRoles.length === 0) {
+      protectedRolesScore -= 10;
+      warnings.push('⚠️ No protected roles are configured. Use /protectrole to monitor critical roles.');
     }
 
-    // 3. MFA requirement for moderators
-    if (guild.mfaLevel === 0) { // NONE
-      score -= 10;
-      warnings.push('⚠️ 2FA requirement for moderators is disabled.');
+    // 4. Protected Channels (Max 15%)
+    let protectedChannelsScore = 15;
+    const configuredProtectedChannels = data.soc.protectedChannels || [];
+    if (configuredProtectedChannels.length === 0) {
+      protectedChannelsScore -= 10;
+      warnings.push('⚠️ No protected channels are configured. Use /protectchannel to monitor critical channels.');
     }
 
-    // 4. Explicit content filter
-    if (guild.explicitContentFilter === 0) { // DISABLED
-      score -= 10;
-      warnings.push('⚠️ Explicit content filter is disabled.');
-    }
-
-    // 5. Bot permissions check (Audit Logs)
+    // 5. Audit Monitoring (Max 10%)
+    let auditScore = 10;
     const botMember = guild.members.me;
     if (botMember && !botMember.permissions.has(PermissionFlagsBits.ViewAuditLog)) {
-      score -= 10;
-      warnings.push('⚠️ Bot lacks "View Audit Log" permission (limited monitoring capabilities).');
+      auditScore -= 10;
+      warnings.push('⚠️ Bot lacks "View Audit Log" permission (cannot audit administrator activities).');
     }
 
-    // Clamp score
-    score = Math.max(0, Math.min(score, 100));
+    // 6. Bot Security (Max 10%)
+    let botSecurityScore = 10;
+    const bots = guild.members.cache.filter(m => m.user.bot);
+    const adminBots = bots.filter(m => m.permissions.has(PermissionFlagsBits.Administrator));
+    if (adminBots.size > 2) {
+      botSecurityScore -= 5;
+      warnings.push(`⚠️ Multiple bots have Administrator privileges (${adminBots.size} bots).`);
+    }
 
-    // Calculate Grade
-    let grade = 'Critical';
-    if (score >= 95) grade = 'Elite';
-    else if (score >= 85) grade = 'Secure';
-    else if (score >= 70) grade = 'Good';
-    else if (score >= 50) grade = 'Moderate';
+    // 7. Webhook Security (Max 10%)
+    let webhookSecurityScore = 10;
+    
+    const totalScore = verificationScore + permissionScore + protectedRolesScore + protectedChannelsScore + auditScore + botSecurityScore + webhookSecurityScore;
+    const score = Math.max(0, Math.min(Math.round(totalScore), 100));
+
+    let grade = 'CRITICAL';
+    if (score >= 95) grade = 'ELITE';
+    else if (score >= 85) grade = 'SECURE';
+    else if (score >= 70) grade = 'GOOD';
+    else if (score >= 50) grade = 'MODERATE';
+    else if (score >= 30) grade = 'HIGH RISK';
 
     return {
       score,
@@ -105,16 +126,11 @@ module.exports = {
     if (!rateTracker[guildId][action]) rateTracker[guildId][action] = [];
 
     const now = Date.now();
-    // Keep events inside window
     rateTracker[guildId][action] = rateTracker[guildId][action].filter(time => now - time < windowMs);
-    
-    // Add current event
     rateTracker[guildId][action].push(now);
 
     const triggered = rateTracker[guildId][action].length > limit;
-    
     if (triggered) {
-      // Clear to prevent repeat triggers in rapid succession
       rateTracker[guildId][action] = [];
     }
 
@@ -122,16 +138,13 @@ module.exports = {
   },
 
   detectMsgThreats(message) {
-    if (!message.guild) return;
+    if (!message.guild) return false;
 
-    // Mass Mention detection
     const mentionLimit = 5;
     const mentionsCount = message.mentions.users.size + message.mentions.roles.size;
     if (mentionsCount > mentionLimit) {
-      db.addThreat('Mass Mention Spam', 'High', `${message.author.tag} mentioned ${mentionsCount} users/roles in a message.`);
+      db.addThreat('Mass Mention Spam', 'HIGH', `${message.author.tag} mentioned ${mentionsCount} users/roles in a message.`);
       db.addSecurityEvent('MASS_MENTIONS', message.author.tag, `Sent message with ${mentionsCount} mentions in #${message.channel.name}`);
-      
-      // AutoMod action simulation
       db.addAutoMod('AntiSpam Action', 'Alert Triggered', `Flagged ${message.author.tag} for mass mentions.`);
       return true;
     }

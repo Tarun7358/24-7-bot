@@ -1,16 +1,18 @@
 const { ActivityType } = require('discord.js');
 const { joinVoiceChannel } = require('@discordjs/voice');
 const config = require('../config');
+const db = require('../utils/db');
+const giveawayHelper = require('../utils/giveawayHelper');
+const socManager = require('../utils/socManager');
 
 module.exports = {
   name: 'ready',
-  once: false, // Fires on reconnects to restore presence and VC automatically
+  once: false,
   async execute(client) {
     const timestamp = new Date().toISOString();
     console.log(`[${timestamp}] [INFO] Bot is ready! Logged in as ${client.user.tag}`);
     
     try {
-      // Set custom activity: Watching "Rage X Corp"
       client.user.setPresence({
         activities: [{ name: 'Rage X Corp', type: ActivityType.Watching }],
         status: 'online',
@@ -30,17 +32,15 @@ module.exports = {
       });
 
       if (slashCommands.length > 0) {
-        // Register globally
         await client.application.commands.set(slashCommands);
         console.log(`[${timestamp}] [INFO] Successfully registered ${slashCommands.length} slash commands globally.`);
 
-        // Register to each guild for instant availability in user's servers
         client.guilds.cache.forEach(async (guild) => {
           try {
             await guild.commands.set(slashCommands);
             console.log(`[${timestamp}] [INFO] Registered slash commands instantly for server: ${guild.name}`);
           } catch (err) {
-            // Ignore cases where the bot does not have permissions to register slash commands in that server
+            // Ignore
           }
         });
       }
@@ -57,7 +57,7 @@ module.exports = {
             channelId: channel.id,
             guildId: channel.guild.id,
             adapterCreator: channel.guild.voiceAdapterCreator,
-            selfDeafen: true, // Optimizes network and CPU/RAM by not receiving audio
+            selfDeafen: true,
             selfMute: false
           });
           console.log(`[${timestamp}] [INFO] Auto-joined 24/7 Voice Channel: ${channel.name} (${channel.id})`);
@@ -68,5 +68,34 @@ module.exports = {
         console.log(`[${timestamp}] [ERROR] Failed to auto-join voice channel: ${err.message}`);
       }
     }
+
+    // 1. Giveaway drawing checker (every 10 seconds)
+    setInterval(async () => {
+      const data = db.getDb();
+      const now = Date.now();
+      const activeGiveaways = data.giveaways.filter(g => !g.ended && g.endsAt <= now);
+      
+      for (const gw of activeGiveaways) {
+        try {
+          await giveawayHelper.drawGiveaway(client, gw);
+        } catch (err) {
+          console.error(`[ERROR] drawing giveaway ${gw.messageId}:`, err.message);
+        }
+      }
+    }, 10000);
+
+    // 2. Initialize Operations Center (SOC)
+    client.guilds.cache.forEach(async (guild) => {
+      try {
+        await socManager.initSoc(guild, client);
+      } catch (err) {
+        console.error(`[SOC] Failed to initialize guild ${guild.name}:`, err.message);
+      }
+    });
+
+    // 3. Start automated stats category and reports update cycle (every 5 minutes)
+    setInterval(() => {
+      socManager.runTick(client);
+    }, 5 * 60 * 1000);
   },
 };

@@ -1,7 +1,687 @@
 {
-  "events": [],
+  "events": [
+    {
+      "timestamp": "21:46",
+      "fullTimestamp": "2026-06-19T16:16:17.430Z",
+      "type": "CHANNEL_UPDATE",
+      "target": "#轉┃𝗦ᴇᴄᴜʀɪᴛʏ-𝗦🇹🇦🇹🇸",
+      "details": "Channel updated."
+    },
+    {
+      "timestamp": "21:45",
+      "fullTimestamp": "2026-06-19T16:15:34.222Z",
+      "type": "CHANNEL_UPDATE",
+      "target": "#轉┃𝗟🇮🇻🇪-𝗦🇹🇦🇹🇸",
+      "details": "Channel updated."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:33.636Z",
+      "type": "MASS_CHANNEL_CREATE_ALERT",
+      "target": "RXC  Snow#4888",
+      "details": "Rate limit exceeded for channel creation."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:33.107Z",
+      "type": "MASS_CHANNEL_CREATE_ALERT",
+      "target": "RXC  Snow#4888",
+      "details": "Rate limit exceeded for channel creation."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:31.983Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#audit-monitor",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:31.760Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#audit-monitor",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:31.504Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#threat-alerts",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:31.201Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#threat-alerts",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.982Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#bot-watchdog",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.740Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#bot-watchdog",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.502Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#admin-logs",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.277Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#admin-logs",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.082Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#security-logs",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.015Z",
+      "type": "MASS_CHANNEL_CREATE_ALERT",
+      "target": "RXC  Snow#4888",
+      "details": "Rate limit exceeded for channel creation."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.817Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#security-logs",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.673Z",
+      "type": "MASS_CHANNEL_CREATE_ALERT",
+      "target": "RXC  Snow#4888",
+      "details": "Rate limit exceeded for channel creation."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.624Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#xt-security-center",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.281Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#xt-security-center",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:28.920Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🛡️ SECURITY OPS",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:28.771Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🛡️ SECURITY OPS",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:28.412Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#xt-live-stats",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:28.297Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#xt-live-stats",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:27.877Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#📊 XTREMEZ STATS",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:27.865Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#📊 XTREMEZ STATS",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:36",
+      "fullTimestamp": "2026-06-19T16:06:44.796Z",
+      "type": "CHANNEL_UPDATE",
+      "target": "#🟢 Online: 8",
+      "details": "Channel updated."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:44.335Z",
+      "type": "CHANNEL_UPDATE",
+      "target": "#🟢 Online: 71",
+      "details": "Channel updated."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:27.708Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#📈 Joins Today: 0",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:27.225Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🛡️ Staff: 9",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:26.799Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🎤 In Voice: 0",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:26.354Z",
+      "type": "MASS_CHANNEL_CREATE_ALERT",
+      "target": "Guild",
+      "details": "Rate limit exceeded for channel creation."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:26.353Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🚀 Boosts: 0",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:25.883Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🟢 Online: 6",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:25.406Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🤖 Bots: 4",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:24.761Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🧑 Users: 12",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:24.279Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#👥 Members: 16",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:23.821Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#📊 SERVER STATS",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:23.366Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#📈 Joins Today: 0",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:22.810Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🛡️ Staff: 12",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:22.205Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🎤 In Voice: 4",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:21.603Z",
+      "type": "MASS_CHANNEL_CREATE_ALERT",
+      "target": "Guild",
+      "details": "Rate limit exceeded for channel creation."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:21.602Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🚀 Boosts: 6",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:21.114Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🟢 Online: 72",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:20.211Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🤖 Bots: 14",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:19.182Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#🧑 Users: 602",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:18.586Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#👥 Members: 616",
+      "details": "Channel was created."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:17.977Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#📊 SERVER STATS",
+      "details": "Channel was created."
+    }
+  ],
   "moderationLogs": [],
-  "liveFeed": [],
-  "threats": [],
-  "autoMod": []
+  "liveFeed": [
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:31.982Z",
+      "action": "Channel Created",
+      "details": "#audit-monitor"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:31.759Z",
+      "action": "Channel Created",
+      "details": "#audit-monitor"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:31.503Z",
+      "action": "Channel Created",
+      "details": "#threat-alerts"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:31.200Z",
+      "action": "Channel Created",
+      "details": "#threat-alerts"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.981Z",
+      "action": "Channel Created",
+      "details": "#bot-watchdog"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.739Z",
+      "action": "Channel Created",
+      "details": "#bot-watchdog"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.501Z",
+      "action": "Channel Created",
+      "details": "#admin-logs"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.276Z",
+      "action": "Channel Created",
+      "details": "#admin-logs"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.081Z",
+      "action": "Channel Created",
+      "details": "#security-logs"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.816Z",
+      "action": "Channel Created",
+      "details": "#security-logs"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.623Z",
+      "action": "Channel Created",
+      "details": "#xt-security-center"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.280Z",
+      "action": "Channel Created",
+      "details": "#xt-security-center"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:28.920Z",
+      "action": "Channel Created",
+      "details": "#🛡️ SECURITY OPS"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:28.770Z",
+      "action": "Channel Created",
+      "details": "#🛡️ SECURITY OPS"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:28.411Z",
+      "action": "Channel Created",
+      "details": "#xt-live-stats"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:28.296Z",
+      "action": "Channel Created",
+      "details": "#xt-live-stats"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:27.876Z",
+      "action": "Channel Created",
+      "details": "#📊 XTREMEZ STATS"
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:27.864Z",
+      "action": "Channel Created",
+      "details": "#📊 XTREMEZ STATS"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:27.707Z",
+      "action": "Channel Created",
+      "details": "#📈 Joins Today: 0"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:27.225Z",
+      "action": "Channel Created",
+      "details": "#🛡️ Staff: 9"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:26.798Z",
+      "action": "Channel Created",
+      "details": "#🎤 In Voice: 0"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:26.352Z",
+      "action": "Channel Created",
+      "details": "#🚀 Boosts: 0"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:25.882Z",
+      "action": "Channel Created",
+      "details": "#🟢 Online: 6"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:25.405Z",
+      "action": "Channel Created",
+      "details": "#🤖 Bots: 4"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:24.760Z",
+      "action": "Channel Created",
+      "details": "#🧑 Users: 12"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:24.278Z",
+      "action": "Channel Created",
+      "details": "#👥 Members: 16"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:23.821Z",
+      "action": "Channel Created",
+      "details": "#📊 SERVER STATS"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:23.365Z",
+      "action": "Channel Created",
+      "details": "#📈 Joins Today: 0"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:22.810Z",
+      "action": "Channel Created",
+      "details": "#🛡️ Staff: 12"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:22.204Z",
+      "action": "Channel Created",
+      "details": "#🎤 In Voice: 4"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:21.601Z",
+      "action": "Channel Created",
+      "details": "#🚀 Boosts: 6"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:21.114Z",
+      "action": "Channel Created",
+      "details": "#🟢 Online: 72"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:20.210Z",
+      "action": "Channel Created",
+      "details": "#🤖 Bots: 14"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:19.180Z",
+      "action": "Channel Created",
+      "details": "#🧑 Users: 602"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:18.585Z",
+      "action": "Channel Created",
+      "details": "#👥 Members: 616"
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:17.976Z",
+      "action": "Channel Created",
+      "details": "#📊 SERVER STATS"
+    }
+  ],
+  "threats": [
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:33.635Z",
+      "type": "Mass Channel Creation",
+      "rating": "HIGH",
+      "alertMessage": "Mass Channel Creation: 3+ channels created within 60s by **RXC  Snow#4888**."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:33.107Z",
+      "type": "Mass Channel Creation",
+      "rating": "HIGH",
+      "alertMessage": "Mass Channel Creation: 3+ channels created within 60s by **RXC  Snow#4888**."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.014Z",
+      "type": "Mass Channel Creation",
+      "rating": "HIGH",
+      "alertMessage": "Mass Channel Creation: 3+ channels created within 60s by **RXC  Snow#4888**."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.673Z",
+      "type": "Mass Channel Creation",
+      "rating": "HIGH",
+      "alertMessage": "Mass Channel Creation: 3+ channels created within 60s by **RXC  Snow#4888**."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:26.353Z",
+      "type": "Mass Channel Creation",
+      "rating": "High",
+      "alertMessage": "Spike in channel creations detected (possible channel raid)."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:21.602Z",
+      "type": "Mass Channel Creation",
+      "rating": "High",
+      "alertMessage": "Spike in channel creations detected (possible channel raid)."
+    }
+  ],
+  "autoMod": [
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:33.637Z",
+      "trigger": "AntiRaid Action",
+      "action": "Alert Triggered",
+      "details": "Flagged rapid channel creations."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:33.108Z",
+      "trigger": "AntiRaid Action",
+      "action": "Alert Triggered",
+      "details": "Flagged rapid channel creations."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:30.015Z",
+      "trigger": "AntiRaid Action",
+      "action": "Alert Triggered",
+      "details": "Flagged rapid channel creations."
+    },
+    {
+      "timestamp": "21:41",
+      "fullTimestamp": "2026-06-19T16:11:29.674Z",
+      "trigger": "AntiRaid Action",
+      "action": "Alert Triggered",
+      "details": "Flagged rapid channel creations."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:26.354Z",
+      "trigger": "AntiRaid Action",
+      "action": "Alert Triggered",
+      "details": "Flagged rapid channel creations."
+    },
+    {
+      "timestamp": "21:31",
+      "fullTimestamp": "2026-06-19T16:01:21.604Z",
+      "trigger": "AntiRaid Action",
+      "action": "Alert Triggered",
+      "details": "Flagged rapid channel creations."
+    }
+  ],
+  "stats": {
+    "messagesToday": 11,
+    "messagesThisWeek": 11,
+    "joinsToday": 0,
+    "joinsThisWeek": 0,
+    "leavesToday": 0,
+    "leavesThisWeek": 0,
+    "messageCounts": {
+      "1322849700109484034": 2,
+      "1211967342091706428": 3,
+      "1318243332463398934": 4,
+      "1140892126402596905": 2
+    },
+    "channelCounts": {
+      "1511379777578205245": 11
+    },
+    "voiceSeconds": {
+      "1393218220743196714": 75
+    },
+    "voiceStartTimes": {},
+    "dailyResetTimestamp": 1781884873788,
+    "weeklyResetTimestamp": 1781884873788
+  },
+  "warnings": {},
+  "suggestions": [],
+  "polls": [],
+  "giveaways": [],
+  "verification": {
+    "roleId": "",
+    "channelId": "",
+    "requiredAgeDays": 0
+  },
+  "soc": {
+    "liveStatsMessageId": "1517563734493499503",
+    "securityDashboardMessageId": "1517570031917989979",
+    "threadIds": {
+      "securityEvents": "1517562492161622097",
+      "botActivity": "1517562497463353395",
+      "adminActivity": "1517562503884832929",
+      "threatAnalysis": "1517562509186306048",
+      "auditReports": "1517562515096338464"
+    },
+    "protectedChannels": [],
+    "protectedRoles": [],
+    "watchlist": {
+      "users": [],
+      "bots": []
+    },
+    "lastReportTimestamps": {
+      "hourly": 1781885500408,
+      "daily": 1781885500408,
+      "weekly": 1781885500408
+    }
+  }
 }

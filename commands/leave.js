@@ -9,6 +9,12 @@ module.exports = {
   
   async execute(message, args, client) {
     try {
+      const player = client.musicPlayers.get(message.guild.id);
+      if (player) {
+        player.stop();
+        client.musicPlayers.delete(message.guild.id);
+      }
+
       const connection = getVoiceConnection(message.guild.id);
 
       if (!connection) {
@@ -51,6 +57,12 @@ module.exports = {
     }
 
     try {
+      const player = client.musicPlayers.get(interaction.guild.id);
+      if (player) {
+        player.stop();
+        client.musicPlayers.delete(interaction.guild.id);
+      }
+
       const connection = getVoiceConnection(interaction.guild.id);
 
       if (!connection) {

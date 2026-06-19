@@ -27,7 +27,9 @@ const client = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
-    GatewayIntentBits.GuildVoiceStates
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildPresences
   ],
   partials: [
     Partials.Message,
@@ -36,7 +38,6 @@ const client = new Client({
   makeCache: Options.cacheWithLimits({
     ...Options.DefaultMakeCacheSettings,
     MessageManager: 0,
-    PresenceManager: 0,
     ReactionManager: 0,
     ThreadManager: 0,
     ThreadMemberManager: 0,
@@ -57,6 +58,7 @@ const client = new Client({
 });
 
 client.commands = new Collection();
+client.musicPlayers = new Map();
 
 // Error / stability event listeners
 client.on('error', (error) => {
