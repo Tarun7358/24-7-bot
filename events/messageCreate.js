@@ -6,6 +6,10 @@ module.exports = {
     // Ignore messages sent by bots or if they are system messages
     if (message.author.bot || message.system) return;
 
+    // Run security scans on every message (threat detection, mass mentions)
+    const securityEngine = require('../utils/securityEngine');
+    securityEngine.detectMsgThreats(message);
+
     // Check if the message starts with the prefix
     if (!message.content.startsWith(config.prefix)) return;
 

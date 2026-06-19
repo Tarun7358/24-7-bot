@@ -20,6 +20,23 @@ module.exports = {
       console.log(`[${timestamp}] [ERROR] Failed to set bot presence: ${err.message}`);
     }
 
+    // Register Slash Commands on startup
+    try {
+      const slashCommands = [];
+      client.commands.forEach(command => {
+        if (command.slashData) {
+          slashCommands.push(command.slashData);
+        }
+      });
+
+      if (slashCommands.length > 0) {
+        await client.application.commands.set(slashCommands);
+        console.log(`[${timestamp}] [INFO] Successfully registered ${slashCommands.length} slash commands globally.`);
+      }
+    } catch (err) {
+      console.log(`[${timestamp}] [ERROR] Failed to register slash commands: ${err.message}`);
+    }
+
     // Auto-join the 24/7 Voice Channel if configured
     if (config.voiceChannelId) {
       try {

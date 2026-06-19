@@ -117,6 +117,34 @@ if (fs.existsSync(eventsPath)) {
   log(`Events directory not found at ${eventsPath}`, 'WARN');
 }
 
+// Dynamically Load Future Pluggable Modules
+client.securityModules = new Collection();
+const modulesPath = path.join(__dirname, 'modules');
+if (!fs.existsSync(modulesPath)) {
+  fs.mkdirSync(modulesPath, { recursive: true });
+}
+
+try {
+  const moduleFiles = fs.readdirSync(modulesPath).filter(file => file.endsWith('.js'));
+  for (const file of moduleFiles) {
+    const filePath = path.join(modulesPath, file);
+    try {
+      const mod = require(filePath);
+      if ('name' in mod && typeof mod.init === 'function') {
+        mod.init(client);
+        client.securityModules.set(mod.name, mod);
+        log(`Module "${mod.name}" plugged in successfully.`, 'INFO');
+      } else {
+        log(`The module at ${filePath} is missing required "name" or "init" method.`, 'WARN');
+      }
+    } catch (err) {
+      log(`Failed to load module at ${filePath}: ${err.message}`, 'ERROR');
+    }
+  }
+} catch (err) {
+  log(`Failed to read modules directory: ${err.message}`, 'ERROR');
+}
+
 // Login
 if (!config.token || config.token === 'YOUR_DISCORD_BOT_TOKEN') {
   log('Discord Bot Token is missing or placeholder value is used. Please configure .env file.', 'ERROR');
