@@ -1,6 +1,7 @@
 module.exports = {
   name: 'ping',
   description: 'Display bot latency and API latency',
+  
   async execute(message, args, client) {
     try {
       const sent = await message.reply({ content: 'Pinging...' });
@@ -15,4 +16,24 @@ module.exports = {
       console.log(`[${timestamp}] [ERROR] Error in ping command: ${err.message}`);
     }
   },
+
+  slashData: {
+    name: 'ping',
+    description: 'Display bot latency and API latency'
+  },
+
+  async executeSlash(interaction, client) {
+    try {
+      const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
+      const latency = sent.createdTimestamp - interaction.createdTimestamp;
+      const apiLatency = Math.round(client.ws.ping);
+      
+      await interaction.editReply({
+        content: `🏓 **Pong!**\n• **Bot Latency:** ${latency}ms\n• **API Latency:** ${apiLatency}ms`
+      });
+    } catch (err) {
+      const timestamp = new Date().toISOString();
+      console.log(`[${timestamp}] [ERROR] Error in ping slash command: ${err.message}`);
+    }
+  }
 };
