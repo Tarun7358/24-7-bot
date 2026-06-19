@@ -30,8 +30,19 @@ module.exports = {
       });
 
       if (slashCommands.length > 0) {
+        // Register globally
         await client.application.commands.set(slashCommands);
         console.log(`[${timestamp}] [INFO] Successfully registered ${slashCommands.length} slash commands globally.`);
+
+        // Register to each guild for instant availability in user's servers
+        client.guilds.cache.forEach(async (guild) => {
+          try {
+            await guild.commands.set(slashCommands);
+            console.log(`[${timestamp}] [INFO] Registered slash commands instantly for server: ${guild.name}`);
+          } catch (err) {
+            // Ignore cases where the bot does not have permissions to register slash commands in that server
+          }
+        });
       }
     } catch (err) {
       console.log(`[${timestamp}] [ERROR] Failed to register slash commands: ${err.message}`);
