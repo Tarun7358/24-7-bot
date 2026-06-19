@@ -41,7 +41,7 @@ async function getOrCreateThread(channel, name) {
 
 async function updateLiveStatsDashboard(guild, client) {
   const data = db.getDb();
-  const liveStatsChannel = guild.channels.cache.find(c => c.name === 'xt-live-stats');
+  const liveStatsChannel = guild.channels.cache.get('1517562471781499095') || await guild.channels.fetch('1517562471781499095').catch(() => null);
   if (!liveStatsChannel) return;
 
   const total = guild.memberCount;
@@ -305,13 +305,9 @@ module.exports = {
       }
 
       // Live Stats Text Channel
-      let liveStatsChannel = guild.channels.cache.find(c => c.name === 'xt-live-stats' && c.type === ChannelType.GuildText);
+      let liveStatsChannel = guild.channels.cache.get('1517562471781499095') || await guild.channels.fetch('1517562471781499095').catch(() => null);
       if (!liveStatsChannel) {
-        liveStatsChannel = await guild.channels.create({
-          name: 'xt-live-stats',
-          type: ChannelType.GuildText,
-          topic: 'XTREMEZ Live Server statistics dashboard'
-        });
+        console.error('[SOC] Configured live stats channel (1517562471781499095) not found in guild.');
       }
 
       // 2. SECURITY OPERATIONS CENTER (SOC)

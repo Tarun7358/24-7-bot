@@ -1,6 +1,20 @@
 {
   "events": [
     {
+      "timestamp": "22:32",
+      "fullTimestamp": "2026-06-19T17:02:58.102Z",
+      "type": "CHANNEL_DELETE",
+      "target": "#xt-live-stats",
+      "details": "Channel was deleted."
+    },
+    {
+      "timestamp": "22:30",
+      "fullTimestamp": "2026-06-19T17:00:31.588Z",
+      "type": "CHANNEL_CREATE",
+      "target": "#xt-live-stats",
+      "details": "Channel was created."
+    },
+    {
       "timestamp": "21:46",
       "fullTimestamp": "2026-06-19T16:16:17.430Z",
       "type": "CHANNEL_UPDATE",
@@ -326,6 +340,18 @@
   "moderationLogs": [],
   "liveFeed": [
     {
+      "timestamp": "22:32",
+      "fullTimestamp": "2026-06-19T17:02:58.102Z",
+      "action": "Channel Deleted",
+      "details": "#xt-live-stats"
+    },
+    {
+      "timestamp": "22:30",
+      "fullTimestamp": "2026-06-19T17:00:31.587Z",
+      "action": "Channel Created",
+      "details": "#xt-live-stats"
+    },
+    {
       "timestamp": "21:41",
       "fullTimestamp": "2026-06-19T16:11:31.982Z",
       "action": "Channel Created",
@@ -647,7 +673,8 @@
       "1511379777578205245": 11
     },
     "voiceSeconds": {
-      "1393218220743196714": 75
+      "1393218220743196714": 75,
+      "1496982772030373909": 5
     },
     "voiceStartTimes": {},
     "dailyResetTimestamp": 1781884873788,
@@ -663,14 +690,14 @@
     "requiredAgeDays": 0
   },
   "soc": {
-    "liveStatsMessageId": "1517563734493499503",
-    "securityDashboardMessageId": "1517570031917989979",
+    "liveStatsMessageId": "1517575736918282474",
+    "securityDashboardMessageId": "1517575742916006029",
     "threadIds": {
-      "securityEvents": "1517562492161622097",
-      "botActivity": "1517562497463353395",
-      "adminActivity": "1517562503884832929",
-      "threatAnalysis": "1517562509186306048",
-      "auditReports": "1517562515096338464"
+      "securityEvents": "1517562490685231197",
+      "botActivity": "1517562496729485422",
+      "adminActivity": "1517562502463094947",
+      "threatAnalysis": "1517562508700028950",
+      "auditReports": "1517562513829662952"
     },
     "protectedChannels": [],
     "protectedRoles": [],
