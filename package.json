@@ -1,0 +1,16 @@
+{
+  "name": "ragex-bot",
+  "version": "1.0.0",
+  "description": "Lightweight 24/7 utility Discord bot optimized for KataBump/Pterodactyl free hosting",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@discordjs/voice": "^0.19.2",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "libsodium-wrappers": "^0.8.4"
+  }
+}
